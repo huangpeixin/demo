@@ -78,27 +78,32 @@ td {
 </style>
 </head>
 <body>
-<div id="cal">
-    <div v-for="month in months" class="month">
-        <span class="month-name">
-            {{month.month+1}}
-        </span>
-        <table>
-            <tr class="weekday-name">
-                <td v-for="n in ['一','二','三','四','五','六','日']">{{n}}</td>
-            </tr>
-            <tr v-for="week in month.weeks" class="week">
-                <td v-for="day in week" class="day"  
-                    v-bind:class="[
-                        day.month!=month.month ? 'off' : '', 
-                        isToday(day) ? 'today':'', isBefore(day) ? 'before':'',
-                        dateType(day).type
-                    ]"
-                >
-                    {{day.date}}
-                </td>
-            </tr>
-        </table>
+<div id="app">
+    <div style="font-weight: 900; font-size: 5em; color: #ffcb57;text-align:center;padding: 1em;">
+        {{new Date().getYear() + 1900}}
+    </div>
+    <div id="cal">
+        <div v-for="month in months" class="month">
+            <span class="month-name">
+                {{month.month+1}}
+            </span>
+            <table>
+                <tr class="weekday-name">
+                    <td v-for="n in ['一','二','三','四','五','六','日']">{{n}}</td>
+                </tr>
+                <tr v-for="week in month.weeks" class="week">
+                    <td v-for="day in week" class="day"  
+                        v-bind:class="[
+                            day.month!=month.month ? 'off' : '', 
+                            isToday(day) ? 'today':'', isBefore(day) ? 'before':'',
+                            dateType(day).type
+                        ]"
+                    >
+                        {{day.date}}
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
 </body>
@@ -158,9 +163,10 @@ function buildMonths(year) {
 let today = new Date()
 
 new Vue({
-  el: '#cal',
+  el: '#app',
   data: {
-    months: buildMonths(today.getFullYear())
+    months: buildMonths(today.getFullYear()),
+    
   },
   methods: {
     isToday:({year,month,date}) => {return year==today.getFullYear()&&month==today.getMonth()&&date==today.getDate()},
