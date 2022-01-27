@@ -11,7 +11,7 @@
 * {
     /* box-sizing: border-box; */
     font-family: fantasy;
-    font-weight:bold;
+    /* font-weight:bold;*/
 }
 #cal {
     display:flex;
@@ -29,11 +29,11 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    font-weight: 900;
     font-size: 5em;
     color: #ffcb57;
     opacity: 0.5;
     z-index: -1;
+    font-weight:bolder
 }
 .month>table{
     width:100%;
@@ -81,7 +81,7 @@ td {
 </head>
 <body>
 <div id="app">
-    <div style="font-weight: 900; font-size: 5em; color: #ffcb57;text-align:center;padding: 0.5em 0 0.3;">
+    <div style="font-weight:bolder; font-size: 5em; color: #ffcb57;text-align:center;padding: 0.5em 0 0;">
         {{new Date().getYear() + 1900}}
     </div>
     <div id="cal">
