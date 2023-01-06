@@ -86,6 +86,13 @@ td {
     background-color: rgb(255,128,102, 0.5);
 }
 
+.rest {
+    background-color: rgb(102,153,255, 0.5);
+}
+.duty {
+     background-color: rgb(255,128,102, 0.5);
+ }
+
 
 </style>
 </head>
@@ -109,7 +116,7 @@ td {
                             day.month!=month.month ? 'off' : '', 
                             isToday(day) ? 'today':'', 
                             isBefore(day) ? 'before':'',
-                            dateType(day).type
+                            ...dateType(day)
                         ]"
                     >
                         {{day.date}}
@@ -123,14 +130,18 @@ td {
 <script>
 let festival = {
     //节日:[日期,    [假期开始,假期结束],  [补班]]
-    "元旦":[20230101,[20230101,20230102],[]],
-    "春节":[20230121,[20230131,20230206],[20230129,20230130]],   
+    // "元旦":[20230101,[20230101,20230102],[]],
+    // "春节":[20230121,[20230131,20230206],[20230129,20230130]],   
     "清明":[20230405,[20230405,20230405],[]],    
     "劳动":[20230501,[20230429,20230503],[20230423,20230506]],   
     "端午":[20230622,[20230603,20230605],[]],
     "中秋":[20230929,[20230929,20230930],[]], 
     "国庆":[20231001,[20231001,20231006],[20231007,20231008]] 
 }
+
+let restDays = [20230107,20230108,20230114,20230115,20230116,20230117,20230120,20230121,20230122,20230123,20230124,20230125,20230126,20230130,20230131]
+let dutyDays = [20230118,20230119]
+
 
 
 //
@@ -186,16 +197,28 @@ new Vue({
     isBefore:({year,month,date}) => {return new Date(year,month,date+1) < today},
     dateType:({year, month, date}) => {
         let d = year * 10000 + (month+1) * 100 + date
+        let types = []
+        
         for(f in festival) {
             if(d>=festival[f][1][0] && d<=festival[f][1][1]) {
-                return {'type':'festival'}
+                types.push('festival')
             }
             if(festival[f][2].includes(d)) {
-                return {'type':'festival-work'}
+                types.push('festival-work')
             }
         }
+
+        if(restDays.includes(d)) {
+            types.push('rest')
+        }
+
+        if(dutyDays.includes(d)) {
+            types.push('duty')
+        }
+        
         let day = new Date(year, month-1, date).getDay()
-        return {'type':day<6 ? 'workday' : 'weekend'}
+        types.push(day<6 ? 'workday' : 'weekend')
+        return types;
     }
   }
 })
