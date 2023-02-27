@@ -115,7 +115,7 @@ td {
                             ...dateType(day)
                         ]"
                     >
-                        {{day.date}}
+                        {{dateType(day)=='home' ? '👨‍👩‍👧‍👦' : day.date}}
                     </td>
                 </tr>
             </table>
@@ -137,6 +137,7 @@ let festival = {
 
 let restDays = []
 let dutyDays = [20230309,20230311,20230319,20230322]
+let homeDays = [20230304,20230305,20230325,20230326]
 
 
 
@@ -210,6 +211,10 @@ new Vue({
 
         if(dutyDays.includes(d)) {
             types.push('duty')
+        }
+
+        if(homeDays.includes(d)) {
+            types.push('home')
         }
         
         let day = new Date(year, month-1, date).getDay()
