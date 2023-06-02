@@ -187,17 +187,22 @@ function buildMonths(year) {
     }
     return months
 }
-let today = new Date()
 
 new Vue({
   el: '#app',
   data: {
-    months: buildMonths(today.getFullYear()),
+    today: new Date(),
+    months: buildMonths(this.today.getFullYear()),
     
   },
+  created: function () {
+      setInterval(()=>{
+          this.today = new Date()
+      },1000*60)
+  },
   methods: {
-    isToday:({year,month,date}) => {return year==today.getFullYear()&&month==today.getMonth()&&date==today.getDate()},
-    isBefore:({year,month,date}) => {return new Date(year,month,date+1) < today},
+    isToday:({year,month,date}) => {return year==this.today.getFullYear()&&month==this.today.getMonth()&&date==this.today.getDate()},
+    isBefore:({year,month,date}) => {return new Date(year,month,date+1) < this.today},
     dateType:({year, month, date}) => {
         let d = year * 10000 + (month+1) * 100 + date
         let types = []
