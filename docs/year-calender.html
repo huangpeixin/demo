@@ -222,13 +222,13 @@
             }
         },
         methods: {
-            isToday: ({year, month, date}) => {
+            isToday: function({year, month, date}) {
                 return year == this.today.getFullYear() && month == this.today.getMonth() && date == this.today.getDate()
             },
-            isBefore: ({year, month, date}) => {
+            isBefore: function({year, month, date}) {
                 return new Date(year, month, date + 1) < this.today
             },
-            dateType: ({year, month, date}) => {
+            dateType: function({year, month, date}) {
                 let d = year * 10000 + (month + 1) * 100 + date
                 let types = []
 
