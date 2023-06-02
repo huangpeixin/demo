@@ -1,99 +1,115 @@
-
 <html>
 <head>
-<meta charset="utf-8">
-<!-- -->
-<meta name="viewport" content="width=device-width, initial-scale=.63, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8">
+    <!-- -->
+    <meta name="viewport" content="width=device-width, initial-scale=.63, maximum-scale=1, user-scalable=no">
 
-<script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.22.2/locale/zh-cn.js"></script>
-<script src="https://cdn.bootcss.com/vue/2.7.14/vue.min.js"></script>
-<style> 
-* {
-    /* box-sizing: border-box; */
-    font-family: fantasy;
-    /* font-weight:bold;*/
-}
-table{
-    border-spacing: 0;
-    border-collapse: collapse;
-}
-#cal {
-    display:flex;
-    flex-wrap: wrap;
-    margin:0 auto;
-    justify-content: center;
-    max-width: 33em;
-}
-.month {
-    position: relative;
-    padding:10px;
-}
-.month-name {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 5em;
-    color: #ffcb57;
-    opacity: 0.5;
-    z-index: -1;
-    font-weight:bolder
-}
-.month>table{
-    width:100%;
-}
-.week {
-}
-.weekday-name {
-    color:#ccc;
-    display: none;
-}
-.day.off {
-    color:#ccc;
-    visibility:hidden;
-}
-.day.before {
-    color:#ccc;
-}
-.month {
-   /*width:33%;*/
-}
-td {
-    text-align: center;
-}
-.day {        
-    /*border-radius: 50%;*/
-    /*padding: 2px;*/
-    
-}
-.day.before {
-    background-color: unset;
-}
-.day.today{
-    /*background-color:  #ffcb57;*/
-    font-weight:bolder;
-}
-/* 
-.festival {
-    background-color: rgb(102,153,255, 0.5);
-}
-.festival-work {
-    background-color: rgb(255,128,102, 0.5);
-}
-*/
-.rest {
-    background-color: rgb(102,153,255, 0.5);
-}
-.duty {
-     background-color: rgb(255,128,102, 0.5);
- }
-.home {
-    font-size: 0.62em;
-}
+    <script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.22.2/locale/zh-cn.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.7.14/vue.min.js"></script>
+    <style>
+        * {
+            /* box-sizing: border-box; */
+            font-family: fantasy;
+            /* font-weight:bold;*/
+        }
+
+        table {
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+
+        #cal {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 auto;
+            justify-content: center;
+            max-width: 33em;
+        }
+
+        .month {
+            position: relative;
+            padding: 10px;
+        }
+
+        .month-name {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 5em;
+            color: #ffcb57;
+            opacity: 0.5;
+            z-index: -1;
+            font-weight: bolder
+        }
+
+        .month > table {
+            width: 100%;
+        }
+
+        .week {
+        }
+
+        .weekday-name {
+            color: #ccc;
+            display: none;
+        }
+
+        .day.off {
+            color: #ccc;
+            visibility: hidden;
+        }
+
+        .day.before {
+            color: #ccc;
+        }
+
+        .month {
+            /*width:33%;*/
+        }
+
+        td {
+            text-align: center;
+        }
+
+        .day {
+            /*border-radius: 50%;*/
+            /*padding: 2px;*/
+
+        }
+
+        .day.before {
+            background-color: unset;
+        }
+
+        .day.today {
+            /*background-color:  #ffcb57;*/
+            font-weight: bolder;
+        }
+
+        /* 
+        .festival {
+            background-color: rgb(102,153,255, 0.5);
+        }
+        .festival-work {
+            background-color: rgb(255,128,102, 0.5);
+        }
+        */
+        .rest {
+            background-color: rgb(102, 153, 255, 0.5);
+        }
+
+        .duty {
+            background-color: rgb(255, 128, 102, 0.5);
+        }
+
+        .home {
+            font-size: 0.62em;
+        }
 
 
-</style>
+    </style>
 </head>
 <body>
 <div id="app">
@@ -103,14 +119,14 @@ td {
     <div id="cal">
         <div v-for="month in months" class="month">
             <span class="month-name">
-                {{month.month+1}}
+                {{month.month + 1}}
             </span>
             <table>
                 <tr class="weekday-name">
                     <td v-for="n in ['一','二','三','四','五','六','日']">{{n}}</td>
                 </tr>
                 <tr v-for="week in month.weeks" class="week">
-                    <td v-for="day in week" class="day"  
+                    <td v-for="day in week" class="day"
                         v-bind:class="[
                             day.month!=month.month ? 'off' : '', 
                             isToday(day) ? 'today':'', 
@@ -119,8 +135,8 @@ td {
                         ]"
                     >
                         {{
-                            dateType(day).includes('home') ? '👨‍👩‍👧‍👦' 
-                            :day.date
+                            dateType(day).includes('home') ? '👨‍👩‍👧‍👦'
+                                    : day.date
                         }}
                     </td>
                 </tr>
@@ -130,109 +146,118 @@ td {
 </div>
 </body>
 <script>
-let festival = {
-    //节日:[日期,    [假期开始,假期结束],  [补班]]
-    // "元旦":[20230101,[20230101,20230102],[]],
-    // "春节":[20230121,[20230131,20230206],[20230129,20230130]],   
-    "清明":[20230405,[20230405,20230405],[]],    
-    "劳动":[20230501,[20230429,20230503],[20230423,20230506]],   
-    "端午":[20230622,[20230603,20230605],[]],
-    "中秋":[20230929,[20230929,20230930],[]], 
-    "国庆":[20231001,[20231001,20231006],[20231007,20231008]] 
-}
-
-let restDays = []
-let dutyDays = [20230604,20230606,20230611,20230615,20230623,20230627]
-let homeDays = [20230430,20230501,20230502,20230503,20230527,20230528,20230617,,20230618]
-
-
-
-//
-class Month {
-    buildDay(year,month,date){
-        return {year:year,month:month,date:date}
+    let festival = {
+        //节日:[日期,    [假期开始,假期结束],  [补班]]
+        // "元旦":[20230101,[20230101,20230102],[]],
+        // "春节":[20230121,[20230131,20230206],[20230129,20230130]],   
+        "清明": [20230405, [20230405, 20230405], []],
+        "劳动": [20230501, [20230429, 20230503], [20230423, 20230506]],
+        "端午": [20230622, [20230603, 20230605], []],
+        "中秋": [20230929, [20230929, 20230930], []],
+        "国庆": [20231001, [20231001, 20231006], [20231007, 20231008]]
     }
-    buildWeeks(year,month) {
-        let weeks = [[],[],[],[],[],[]]
-        const m = moment([year,month])
-        const daysInMonth = m.daysInMonth();
-        const shiftDays = (m.isoWeekday()-1+7)%7
-        //上个月
-        for(let i=0,daysInPreMonth=new Date(new Date(2019,1)-1).getDate()/*moment([year,month-1]).daysInMonth()*/; i<shiftDays; i++) {
-            weeks[0][shiftDays-i-1] = this.buildDay(year, month-1, daysInPreMonth-i)
+
+    let restDays = []
+    let dutyDays = [20230604, 20230606, 20230611, 20230615, 20230623, 20230627]
+    let homeDays = [20230430, 20230501, 20230502, 20230503, 20230527, 20230528, 20230617, , 20230618]
+
+
+    //
+    class Month {
+        buildDay(year, month, date) {
+            return {year: year, month: month, date: date}
         }
-        
-        //当前月
-        for(let d=1; d<=daysInMonth; d++) {
-            weeks[parseInt((shiftDays+d-1)/7)][(shiftDays+d-1)%7] = this.buildDay(year, month, d)
-        }
-        //下个月
-        for(let i=1; i<=6*7-shiftDays-daysInMonth; i++) {
-            weeks[parseInt((i+shiftDays+daysInMonth-1)/7)][(i+shiftDays+daysInMonth-1)%7] = this.buildDay(year, month+1, i)
-        }
-            
-        return weeks
-    }
-    constructor(year,month){
-        let totalMonth = year*12+month
-        this.year= parseInt(totalMonth/12)
-        this.month = totalMonth%12
-        this.weeks = this.buildWeeks(this.year, this.month)
-    }
-}
-function buildMonths(year) {
-    let months = []
-    for(let m=0; m<12; m++) {
-        months.push(new Month(year,m))
-    }
-    return months
-}
 
-new Vue({
-  el: '#app',
-  data: {
-    today: new Date(),
-    months: buildMonths(this.today.getFullYear()),
-    
-  },
-  created: function () {
-      setInterval(()=>{
-          this.today = new Date()
-      },1000*60)
-  },
-  methods: {
-    isToday:({year,month,date}) => {return year==this.today.getFullYear()&&month==this.today.getMonth()&&date==this.today.getDate()},
-    isBefore:({year,month,date}) => {return new Date(year,month,date+1) < this.today},
-    dateType:({year, month, date}) => {
-        let d = year * 10000 + (month+1) * 100 + date
-        let types = []
-        
-        for(f in festival) {
-            if(d>=festival[f][1][0] && d<=festival[f][1][1]) {
-                types.push('festival')
+        buildWeeks(year, month) {
+            let weeks = [[], [], [], [], [], []]
+            const m = moment([year, month])
+            const daysInMonth = m.daysInMonth();
+            const shiftDays = (m.isoWeekday() - 1 + 7) % 7
+            //上个月
+            for (let i = 0, daysInPreMonth = new Date(new Date(2019, 1) - 1).getDate()/*moment([year,month-1]).daysInMonth()*/; i < shiftDays; i++) {
+                weeks[0][shiftDays - i - 1] = this.buildDay(year, month - 1, daysInPreMonth - i)
             }
-            if(festival[f][2].includes(d)) {
-                types.push('festival-work')
+
+            //当前月
+            for (let d = 1; d <= daysInMonth; d++) {
+                weeks[parseInt((shiftDays + d - 1) / 7)][(shiftDays + d - 1) % 7] = this.buildDay(year, month, d)
+            }
+            //下个月
+            for (let i = 1; i <= 6 * 7 - shiftDays - daysInMonth; i++) {
+                weeks[parseInt((i + shiftDays + daysInMonth - 1) / 7)][(i + shiftDays + daysInMonth - 1) % 7] = this.buildDay(year, month + 1, i)
+            }
+
+            return weeks
+        }
+
+        constructor(year, month) {
+            let totalMonth = year * 12 + month
+            this.year = parseInt(totalMonth / 12)
+            this.month = totalMonth % 12
+            this.weeks = this.buildWeeks(this.year, this.month)
+        }
+    }
+
+    function buildMonths(year) {
+        let months = []
+        for (let m = 0; m < 12; m++) {
+            months.push(new Month(year, m))
+        }
+        return months
+    }
+
+    new Vue({
+        el: '#app',
+        data: {
+            today: new Date(),
+        },
+        created: function () {
+            setInterval(() => {
+                this.today = new Date()
+            }, 1000 * 60)
+        },
+        computed: {
+            months: function () {
+                return buildMonths(this.today.getFullYear())
+            }
+        },
+        methods: {
+            isToday: ({year, month, date}) => {
+                return year == this.today.getFullYear() && month == this.today.getMonth() && date == this.today.getDate()
+            },
+            isBefore: ({year, month, date}) => {
+                return new Date(year, month, date + 1) < this.today
+            },
+            dateType: ({year, month, date}) => {
+                let d = year * 10000 + (month + 1) * 100 + date
+                let types = []
+
+                for (f in festival) {
+                    if (d >= festival[f][1][0] && d <= festival[f][1][1]) {
+                        types.push('festival')
+                    }
+                    if (festival[f][2].includes(d)) {
+                        types.push('festival-work')
+                    }
+                }
+
+                if (restDays.includes(d)) {
+                    types.push('rest')
+                }
+
+                if (dutyDays.includes(d)) {
+                    types.push('duty')
+                }
+
+                if (homeDays.includes(d)) {
+                    types.push('home')
+                }
+
+                let day = new Date(year, month - 1, date).getDay()
+                types.push(day < 6 ? 'workday' : 'weekend')
+                return types;
             }
         }
-
-        if(restDays.includes(d)) {
-            types.push('rest')
-        }
-
-        if(dutyDays.includes(d)) {
-            types.push('duty')
-        }
-
-        if(homeDays.includes(d)) {
-            types.push('home')
-        }
-        
-        let day = new Date(year, month-1, date).getDay()
-        types.push(day<6 ? 'workday' : 'weekend')
-        return types;
-    }
-  }
-})
+    })
 </script>
 </html>
