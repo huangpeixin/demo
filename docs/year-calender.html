@@ -97,11 +97,12 @@
         }
         */
         .rest {
-            background-color: rgb(102, 153, 255, 0.5);
+        / / background-color: rgb(102, 153, 255, 0.5);
         }
 
         .duty {
             background-color: rgb(255, 128, 102, 0.5);
+            border-radius: 50%;
         }
 
         .home {
@@ -138,7 +139,10 @@
                         {{
                             !showTag ? day.date
                                     : dateType(day).includes('home') ? '👨‍👩‍👧‍👦'
-                                            : dateType(day).includes('rest') && !isBefore(day) ? '🚵‍♂️'
+                                            : isBefore(day) ? day.date
+                                                    : dateType(day).includes('rest') ? '🌞'
+                                                            // : dateType(day).includes('rest') ? '🚵‍♂️'
+                                                            : dateType(day).includes('duty') ? day.date
                                     : day.date
                         }}
                     </td>
@@ -160,7 +164,7 @@
         "国庆": [20231001, [20231001, 20231006], [20231007, 20231008]]
     }
 
-    let restDays = [20231015, 20231022, 20231028, 20231029,]
+    let restDays = [20231112, 20231119, 20231125, 20231126,]
     let dutyDays = [20231101, 20231107, 20231113, 20231118, 20231124, 20231130,]
     let homeDays = [20231104, 20231105,]
 
