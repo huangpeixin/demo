@@ -44,7 +44,7 @@
     console.info(groupedData)
 
     // Prepare data for chart  
-    const labels = Object.keys(groupedData).map(key => key).sort().slice(-12);
+    const labels = Object.keys(groupedData).map(key => key).sort().slice(-6);
     const barData = labels.map(key => groupedData[key].totalDistance);
     const lineData = labels.map((key, index) => ({
         x: key,
