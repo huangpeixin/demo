@@ -81,7 +81,11 @@
                     labels: labels,
                 },
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 100, // 设置刻度的步长
+                        maxTicksLimit: 100 // 设置最大刻度数量
+                    },
                 }
             }
         }
