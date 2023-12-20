@@ -47,16 +47,16 @@
     const labels = Object.keys(groupedData).map(key => key).sort().slice(-12);
     const barData = labels.map(key => groupedData[key].totalDistance);
     const lineData = labels.map((key, index) => ({
-        x: key,
+        x: key.substring(5),
         y: groupedData[key].dueDistance,
     }));
-
+    console.info(labels.map(i => i.substring(5)))
     // Create bar and line charts 
     const ctx = document.getElementById('cyclingChart').getContext('2d');
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: labels,
+            labels: labels.map(i => i.substring(5)),
             datasets: [{
                 label: '里程',
                 data: barData,
@@ -78,7 +78,7 @@
             scales: {
                 x: {
                     type: 'category',
-                    labels: labels,
+                    labels: labels.map(i => i.substring(5)),
                 },
                 y: {
                     beginAtZero: true,
