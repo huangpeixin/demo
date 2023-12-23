@@ -11,8 +11,6 @@
 <body>
 <div style="width:90%; margin: auto;max-width: 500px;">
     <canvas id="cyclingChart"></canvas>
-    <canvas id="areaChart1"></canvas>
-
 </div>
 
 <script>
@@ -24,7 +22,6 @@
         .then(response =>  response.json())
         .then(data => {
             initCyclingChart(data)
-            initAreaChart(data)
         })
     
     function initCyclingChart (cyclingData) {
@@ -103,54 +100,6 @@
         });
     }
 
-    function initAreaChart(cyclingData) {
-        const monthWaveData = {}
-        cyclingData.forEach(entry => {
-            const date = new Date(entry.start_time)
-            console.info(date.getDate())
-            const key = `${date.getFullYear()}-${date.getMonth() + 1}`
-            monthWaveData[key] = monthWaveData[key] || []
-            monthWaveData[key].push({x:Number((date.getDate()+date.getHours()/24).toFixed(1)),y:Number((entry.distance_raw/1000).toFixed(1))})
-        })
-        console.info(monthWaveData['2023-12'])
-
-        
-        // 获取 canvas 元素
-        const canvas = document.getElementById('areaChart1');
-        const ctx = canvas.getContext('2d');
-
-        // 创建波浪曲线的数据
-
-        // 创建 Chart 实例
-        const areaChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                datasets: [{
-                    label: 'Area',
-                    borderColor: 'blue',
-                    backgroundColor: 'rgba(0, 0, 255, 0.2)',
-                    fill: 'origin', // 设置为 'origin' 以填充面积
-                    data: monthWaveData['2023-12'],
-                    pointRadius: 0, // 隐藏数据点
-                    pointHoverRadius: 0, // 鼠标悬停时也隐藏数据点
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    x: {
-                        type: 'linear',
-                        position: 'bottom',
-                    },
-                    y: {
-                        type: 'linear',
-                        position: 'left',
-                    },
-                },
-            },
-        });
-    }
     
 </script>
 </body>
