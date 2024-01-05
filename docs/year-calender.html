@@ -77,6 +77,7 @@
         .day {
             /*border-radius: 50%;*/
             /*padding: 2px;*/
+            width: 20px;
         }
 
         .day.before {
@@ -98,19 +99,39 @@
         */
         .rest {
         / / background-color: rgb(102, 153, 255, 0.5);
-            font-size: 0.62em;
+            font-size: 0.8em;
         }
 
+        .home {
+            font-size: 0.8em;
+            opacity: 1 !important;
+        }
+
+        /*
         .duty {
             background-color: rgb(255, 128, 102, 0.5);
             border-radius: 50%;
         }
-
-        .home {
-            font-size: 0.62em;
-            opacity: 1 !important;
+        */
+        .duty {
+            position: relative;
         }
 
+        .duty:not(.before)::after {
+            content: '';
+            display: block;
+            width: 60%;
+            left: 20%;
+            top: 36%;
+            height: 2px;
+            background-color: red;
+            position: absolute;
+            bottom: 0;
+            border-width: 0 0 2px;
+            border-style: solid;
+            border-color: red;
+            opacity: 0.5;
+        }
 
     </style>
 </head>
