@@ -1,5 +1,21 @@
 [
 	{
+		"activity_url":"https://www.strava.com/activities/10653575630",
+		"bike_id":13535335,
+		"commute":false,
+		"distance_raw":57407.6,
+		"elapsed_time_raw":7210,
+		"elevation_gain_raw":0.0,
+		"id":10653575630,
+		"moving_time_raw":7210,
+		"name":"140W",
+		"private":true,
+		"start_time":"2024-01-29 19:56:31",
+		"trainer":true,
+		"type":"VirtualRide",
+		"visibility":"only_me"
+	},
+	{
 		"activity_url":"https://www.strava.com/activities/10652593006",
 		"bike_id":12906547,
 		"distance_raw":9484.19,
