@@ -115,8 +115,10 @@
         */
         .duty {
             position: relative;
+            color:#FF4332;
         }
 
+        /*
         .duty:not(.before)::after {
             content: '';
             display: block;
@@ -132,6 +134,7 @@
             border-color: red;
             opacity: 0.5;
         }
+        */
 
     </style>
 </head>
@@ -162,9 +165,9 @@
                             !showTag ? day.date
                                     : isBefore(day) ? day.date
                                     : dateType(day).includes('home') ? '👨‍👩‍👧‍👦'
-                                                    : dateType(day).includes('rest') ? '🌞'
-                                                            // : dateType(day).includes('rest') ? '🚵‍♂️'
-                                                            : dateType(day).includes('duty') ? day.date
+                                    : dateType(day).includes('rest') ? '🌞'
+                                    // : dateType(day).includes('rest') ? '🚵‍♂️'
+                                    // : dateType(day).includes('duty') ? 'D'
                                     : day.date
                         }}
                     </td>
