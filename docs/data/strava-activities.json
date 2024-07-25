@@ -1,5 +1,20 @@
 [
 	{
+		"activity_url":"https://www.strava.com/activities/11973665759",
+		"bike_id":12906547,
+		"distance_raw":66646.1,
+		"elapsed_time_raw":8959,
+		"elevation_gain_raw":658.335,
+		"id":11973665759,
+		"moving_time_raw":8549,
+		"name":"2024-07-25的骑行",
+		"private":true,
+		"start_time":"2024-07-25 05:40:07",
+		"trainer":false,
+		"type":"Ride",
+		"visibility":"only_me"
+	},
+	{
 		"activity_url":"https://www.strava.com/activities/11967993080",
 		"bike_id":12906547,
 		"distance_raw":17993.2,
