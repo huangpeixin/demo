@@ -1,5 +1,19 @@
 [
 	{
+		"activity_url":"https://www.strava.com/activities/12124584606",
+		"distance_raw":241703.0,
+		"elapsed_time_raw":48422,
+		"elevation_gain_raw":2363.9,
+		"id":12124584606,
+		"moving_time_raw":35559,
+		"name":"盘山🎉/沙鱼涌🏊‍♂️/东涌/西涌",
+		"private":true,
+		"start_time":"2024-08-11 06:00:39",
+		"trainer":false,
+		"type":"Ride",
+		"visibility":"only_me"
+	},
+	{
 		"activity_url":"https://www.strava.com/activities/12119033947",
 		"distance_raw":195037.0,
 		"elapsed_time_raw":41622,
