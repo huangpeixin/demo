@@ -14,36 +14,6 @@
 		"visibility":"only_me"
 	},
 	{
-		"activity_url":"https://www.strava.com/activities/12119033947",
-		"distance_raw":195037.0,
-		"elapsed_time_raw":41622,
-		"elevation_gain_raw":2076.53,
-		"id":12119033947,
-		"moving_time_raw":29784,
-		"name":"沙鱼涌🏊‍♂️/东涌/西涌",
-		"private":false,
-		"start_time":"2024-08-11 07:53:59",
-		"trainer":false,
-		"type":"Ride",
-		"visibility":"everyone",
-		"workout_type":10
-	},
-	{
-		"activity_url":"https://www.strava.com/activities/12115260192",
-		"distance_raw":46662.9,
-		"elapsed_time_raw":5922,
-		"elevation_gain_raw":287.251,
-		"id":12115260192,
-		"moving_time_raw":5775,
-		"name":"盘山🎉",
-		"private":false,
-		"start_time":"2024-08-11 06:00:39",
-		"trainer":false,
-		"type":"Ride",
-		"visibility":"everyone",
-		"workout_type":10
-	},
-	{
 		"activity_url":"https://www.strava.com/activities/12110122407",
 		"distance_raw":109766.0,
 		"elapsed_time_raw":468726,
