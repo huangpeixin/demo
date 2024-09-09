@@ -141,6 +141,11 @@
             if (savedBookmarks) {
                 this.bookmarks = JSON.parse(savedBookmarks);
             }
+
+            // 演示数据
+            if (!Object.keys(this.bookmarks).length) {
+                this.bookmarks = this.generateDemoData()
+            }
         },
         watch: {
             bookmarks: {
@@ -239,7 +244,7 @@
             },
             // Define your methods here
             generateDemoData() {
-                this.bookmarks = {
+                return {
                     "开发工具": [
                         { name: "GitHub", url: "https://github.com" },
                         { name: "Stack Overflow", url: "https://stackoverflow.com" },
@@ -250,7 +255,7 @@
                         { name: "JSON Formatter", url: "https://jsonformatter.curiousconcept.com" },
                         { name: "RegExr", url: "https://regexr.com" }
                     ]
-                };
+                }
             },
             saveMarkdown() {
                 const markdownContent = this.$refs.markdownContainer.innerText
@@ -280,9 +285,7 @@
             }
         },
         created() {
-            if (Object.keys(this.bookmarks).length == 0) {
-                this.generateDemoData();
-            }
+
 
         }
     });
