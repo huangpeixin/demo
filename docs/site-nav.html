@@ -102,6 +102,7 @@
     </style>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pinyin-pro/3.24.2/index.min.js"></script>
 </head>
 
 <body>
@@ -183,7 +184,7 @@
                 const isLinkMatchingSearch = (link, searchQuery) => {
                     const { name, url } = link;
                     const searchWords = searchQuery.toLowerCase().split(' ');
-                    return searchWords.every(word => name.toLowerCase().includes(word) || url.toLowerCase().includes(word));
+                    return searchWords.every(word => name.toLowerCase().includes(word) || url.toLowerCase().includes(word) || this.pinyinMatch(name, word) );
                 }
 
                 return Object.fromEntries(
@@ -292,10 +293,12 @@
                 });
 
                 return result;
+            },
+            pinyinMatch(str, pinyin) {
+                return pinyinPro.match(str, pinyin)
             }
         },
         created() {
-
 
         }
     });
