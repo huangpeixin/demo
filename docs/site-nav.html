@@ -306,7 +306,9 @@
             handleKeyPress(event) {
                 if (event.key === 'Enter' && this.searchQuery.trim()) {
                     const q = encodeURIComponent(this.searchQuery.trim());
-                    window.open(`https://www.google.com/search?q=${q}`, '_blank');
+                    // window.open(`https://www.google.com/search?q=${q}`, '_blank');
+                    // 直接重定向
+                    window.location.href = `https://www.google.com/search?q=${q}`
                 }
             },
         },
