@@ -109,7 +109,7 @@
 <div id="app">
     <header>
         <div class="container">
-            <input type="text" v-model="searchQuery" placeholder="Search bookmarks..." class="search-input">
+            <input type="text" v-model="searchQuery" @keydown.enter="handleKeyPress" placeholder="Search bookmarks..." class="search-input">
             <div class="btn-group">
                 <button @click="saveMarkdown" v-if="markdownMode" class="danger">Save</button>
                 <button @click="markdownMode = !markdownMode">{{markdownMode ? 'HTML Mode' : 'Markdown Mode'}}</button>
@@ -154,6 +154,12 @@
             if (!Object.keys(this.bookmarks).length) {
                 this.bookmarks = this.generateDemoData()
             }
+
+            // 自动聚焦搜索框
+            this.$nextTick(() => {
+                const input = document.querySelector('.search-input');
+                if (input) input.focus();
+            });
         },
         watch: {
             bookmarks: {
@@ -296,7 +302,13 @@
             },
             pinyinMatch(str, pinyin) {
                 return pinyinPro.match(str, pinyin)
-            }
+            },
+            handleKeyPress(event) {
+                if (event.key === 'Enter' && this.searchQuery.trim()) {
+                    const q = encodeURIComponent(this.searchQuery.trim());
+                    window.open(`https://www.google.com/search?q=${q}`, '_blank');
+                }
+            },
         },
         created() {
 
