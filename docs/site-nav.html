@@ -109,7 +109,7 @@
 <div id="app">
     <header>
         <div class="container">
-            <input type="text" v-model="searchQuery" @keydown.enter="handleKeyPress" placeholder="Search bookmarks..." class="search-input">
+            <input type="text" v-model="searchQuery" @keydown.enter="handleKeyPress" autofocus  placeholder="Search bookmarks..." class="search-input">
             <div class="btn-group">
                 <button @click="saveMarkdown" v-if="markdownMode" class="danger">Save</button>
                 <button @click="markdownMode = !markdownMode">{{markdownMode ? 'HTML Mode' : 'Markdown Mode'}}</button>
