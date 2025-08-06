@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>呼吸训练</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #f5f8fa;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Helvetica Neue", "Segoe UI", sans-serif;
+      transition: background 1s;
+    }
+
+    #container {
+      text-align: center;
+    }
+
+    #startBtn {
+      padding: 14px 32px;
+      font-size: 18px;
+      background-color: #4db6ac;
+      color: white;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    #startBtn:hover {
+      background-color: #009688;
+    }
+
+    #circle {
+      width: 180px;
+      height: 180px;
+      margin: 60px auto;
+      background: radial-gradient(circle, #b3e5fc, #81d4fa);
+      border-radius: 50%;
+      transform: scale(1);
+      transition: transform 6s ease-in-out, background 6s ease-in-out;
+      display: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #text {
+      font-size: 36px;
+      font-weight: 300;
+      color: #444;
+      /* opacity: 0; */
+      transition: opacity 1s;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="circle">
+      <div id="text">开始</div>
+    </div>
+  </div>
+
+  <script>
+    const circle = document.getElementById('circle');
+    const text = document.getElementById('text');
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function startBreathing() {
+      circle.style.display = 'flex';
+      void circle.offsetWidth; // 强制回流，确保初始动画触发
+
+      while (true) {
+        // 吸气 4 秒
+        text.textContent = '吸';
+        text.style.opacity = 1;
+        circle.style.transform = 'scale(1.4)';
+        circle.style.background = 'radial-gradient(circle, #b3e5fc, #81d4fa)';
+        await sleep(4000);
+
+        // 停顿 1 秒
+        text.style.opacity = 0;
+        await sleep(1000);
+
+        // 呼气 6 秒
+        text.textContent = '呼';
+        text.style.opacity = 1;
+        circle.style.transform = 'scale(1)';
+        circle.style.background = 'radial-gradient(circle, #d1c4e9, #b39ddb)';
+        await sleep(6000);
+
+        // 停顿 1 秒
+        text.style.opacity = 0;
+        await sleep(1000);
+      }
+    }
+
+    circle.addEventListener('click', startBreathing);
+  </script>
+</body>
+</html>
