@@ -260,6 +260,7 @@
                 }
             },
             // Define your methods here
+            /*
             generateDemoData() {
                 return {
                     "开发工具(示例)": [
@@ -271,6 +272,70 @@
                         { name: "Can I Use", url: "https://caniuse.com" },
                         { name: "JSON Formatter", url: "https://jsonformatter.curiousconcept.com" },
                         { name: "RegExr", url: "https://regexr.com" }
+                    ]
+                }
+            },
+            */
+            generateDemoData() {
+                return {
+                    "BOSS": [
+                        { name: "BOSS系统-PRO", url: "https://newboss.shanhs.com/new-boss/system/#/pd-product" },
+                        { name: "BOSS系统-TEST", url: "https://test.www.shanhs.com.cn/new-boss/system/#/pd-product" },
+                        { name: "BOSS系统-本地调试", url: "http://localhost:8075/new-boss/system/?条码=TCS2024040300041-601#/nb-detection" },
+                        { name: "BOSS系统-预发布", url: "https://pre-boss.shanhs.com/new-boss/system/#/pd-product" },
+                        { name: "Boss国际版系统-TEST", url: "https://test.www.shanhs.com.cn/shanhs-global-boss-front/sys-user" },
+                        { name: "Boss国际版系统-PRO", url: "https://newboss.shanhs.com/shanhs-global-boss-front/sys-user" },
+                        { name: "门店ERP-TETS", url: "https://test.m.shanhs.com.cn/shanhs-store" },
+                        { name: "支撑群问题记录", url: "https://alidocs.dingtalk.com/i/nodes/ZX6GRezwJl7zxrZ5TbGwQB1GVdqbropQ" },
+                        { name: "闪回文档", url: "https://alidocs.dingtalk.com/i/spaces/3YxXA5yryrlqQXNy/overview" }
+                    ],
+                    "闪回运维": [
+                        { name: "代码搜索", url: "https://codeup.aliyun.com/search" },
+                        { name: "Quick BI", url: "https://bi.aliyun.com/cube.htm?workspaceId=fdce6489-1fa3-428a-86f2-0516add0f820" },
+                        { name: "goodjob", url: "https://goodjob.shanhs.com/" },
+                        { name: "华为云 - 登录hw85596339", url: "https://auth.huaweicloud.com/authui/login?id=hw85596339" },
+                        { name: "华为云CCE", url: "https://console.huaweicloud.com/cce2.0/?agencyId=e01fdc2bbc49421b8ff55df9f45c97f1®ion=cn-south-1&locale=zh-cn#/cce/cluster/9953d486-42cb-11ec-9c4c-0255ac10223e/detail?category=CCE" },
+                        { name: "Job - PRO", url: "https://shanhsjob.shanhs.com/" },
+                        { name: "Job - TEST", url: "http://shanhsjob.dev.shanhs.com.cn/jobinfo?jobGroup=64" },
+                        { name: "MSE管理控制台", url: "https://mse.console.aliyun.com/?spm=5176.12818093.top-nav.31.57ea16d0Fz0ULU#/Instance/Config/List?ClusterId=mse-bf99b616&ClusterName=闪回 dev/test 配置中心&ClusterType=Nacos-Ans&InstanceId=mse_prepaid_public_cn-i7m2ne3ji0c&VersionCode=NACOS_2_2_3_1&AppVersion=2.2.3.1&MseVersion=mse_pro&ChargeType=PREPAY®ion=cn-shenzhen&prometheusVersion=basic" },
+                        { name: "应用监控", url: "https://arms.console.aliyun.com/#/tracing/list/cn-shenzhen" },
+                        { name: "JSON", url: "https://www.json.cn" },
+                        { name: "test-kibana", url: "https://shanhs-test-6j9.kibana.public.cn-shenzhen.es-serverless.aliyuncs.com/app/dev_tools#/console" },
+                        { name: "pro-kibana", url: "https://shanhs-pro-vy1.kibana.public.cn-shenzhen.es-serverless.aliyuncs.com/app/discover#" },
+                        { name: "闪回app管理平台", url: "http://apm.shanhs.com.cn/app/1/build" },
+                        { name: "paipai-授权 - test", url: "https://open-oauth.jd.com/oauth2/to_login?app_key=091D6FE1B2EB4C0D67DFC3C7522F0BD0&response_type=code&redirect_uri=https://test.www.shanhs.com.cn/sapi/gateway/third-notify/paipai/oauth/callback&state=20180416&scope=snsapi_base" },
+                        { name: "paipai-授权 - pro", url: "https://open-oauth.jd.com/oauth2/to_login?app_key=091D6FE1B2EB4C0D67DFC3C7522F0BD0&response_type=code&redirect_uri=https://newboss.shanhs.com/sapi/gateway/third-notify/paipai/oauth/callback&state=20180416&scope=snsapi_base" },
+                        { name: "MQ", url: "https://ons.console.aliyun.com/region/mq-internet-access/instance/MQ_INST_1832963552928103_D1LKoAxx/topics" },
+                        { name: "需求", url: "https://devops.aliyun.com/projex/project/799fe016130b3d9d2031266604/req#viewIdentifier=caa9e86f0954b021c5dec6e83e" },
+                        { name: "DMS", url: "https://dms.aliyun.com/" },
+                        { name: "阿里云日志", url: "https://sls.console.aliyun.com/lognext/project/shanhs-log/logsearch/service" },
+                        { name: "SQL洞察", url: "https://polardb.console.aliyun.com/cn-shenzhen/cluster/pc-wz94k6kmqlqrg3gnf/sqlexplorer" }
+                    ],
+                    "pipeline": [
+                        { name: "codeup", url: "https://codeup.aliyun.com/" },
+                        { name: "流水线 · aggregate-api", url: "https://codeup.aliyun.com/shanhs/team-basic/aggregate-api/pipeline" },
+                        { name: "流水线 · bi-data-process", url: "https://codeup.aliyun.com/shanhs/backend-common/bi-data-process/pipeline" },
+                        { name: "流水线 · boss-admin", url: "https://codeup.aliyun.com/shanhs/front-backstage/boss-admin/pipeline" },
+                        { name: "流水线 · boss-admin-v3", url: "https://codeup.aliyun.com/shanhs/front-backstage/boss-admin-v3/pipeline" },
+                        { name: "流水线 · boss-api", url: "https://codeup.aliyun.com/shanhs/backend-backstage/boss-api/pipeline" },
+                        { name: "流水线 · boss-business-api", url: "https://codeup.aliyun.com/shanhs/backend/boss-business-api/pipeline" },
+                        { name: "流水线 · boss-detection-api", url: "https://codeup.aliyun.com/shanhs/backend-backstage/boss-detection-api/pipeline" },
+                        { name: "流水线 · boss-system-api", url: "https://codeup.aliyun.com/shanhs/backend-backstage/boss-system-api/pipeline" },
+                        { name: "流水线 · boss-support-api", url: "https://codeup.aliyun.com/shanhs/backend-backstage/boss-support-api/pipeline" },
+                        { name: "流水线 · boss-sales-api", url: "https://codeup.aliyun.com/shanhs/backend-sale/boss-sales-api/pipeline" },
+                        { name: "流水线 · shs-fast-bid-api", url: "https://codeup.aliyun.com/shanhs/backend-sale/shs-fast-bid-api/pipeline" },
+                        { name: "流水线 · sale-platform", url: "https://codeup.aliyun.com/shanhs/backend-sale/sale-platform/pipeline" },
+                        { name: "流水线 · sales-app-api", url: "https://codeup.aliyun.com/shanhs/backend-sale/sales-app-api/pipeline" },
+                        { name: "流水线 · sales-management-api", url: "https://codeup.aliyun.com/shanhs/backend-sale/sales-management-api/pipeline" },
+                        { name: "流水线 · sales-out-api", url: "https://codeup.aliyun.com/shanhs/backend-sale/sales-out-api/pipeline" },
+                        { name: "流水线 · third-notify", url: "https://codeup.aliyun.com/shanhs/backend-common/third-notify/pipeline" }
+                    ],
+                    "AI": [
+                        { name: "chatgpt", url: "https://chatgpt.com/" },
+                        { name: "KIMI", url: "https://kimi.moonshot.cn/" },
+                        { name: "秘塔", url: "https://metaso.cn/" },
+                        { name: "deepseek", url: "https://chat.deepseek.com/" },
+                        { name: "idea", url: "https://idea.hacks.tools/" }
                     ]
                 }
             },
