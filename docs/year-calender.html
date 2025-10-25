@@ -266,6 +266,9 @@
             isBefore: function({year, month, date}) {
                 return new Date(year, month, date + 1) < this.today
             },
+            isType: function({year, month, date}, type) {
+                return dateType({year, month, date}).includes(type)
+            },
             dateType: function({year, month, date}) {
                 let d = year * 10000 + (month + 1) * 100 + date
                 let types = []
