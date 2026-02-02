@@ -295,12 +295,12 @@
                     types.push('rest')
                 }
 
-                if (dutyDays.includes(d)) {
-                    types.push('duty')
-                }
-
                 if (homeDays.includes(d)) {
                     types.push('home')
+                }
+
+                if (dutyDays.includes(d)) {
+                    types.push('duty')
                 }
 
                 let day = new Date(year, month - 1, date).getDay()
