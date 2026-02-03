@@ -170,6 +170,7 @@
                         {{
                             !showTag ? day.date
                                     : isBefore(day) ? day.date
+                                    : dateType(day).includes('duty') ? day.date
                                     : dateType(day).includes('home') ? '🏠'
                                     : dateType(day).includes('rest') ? '🌞'
                                     // : dateType(day).includes('rest') ? '🚵‍♂️'
